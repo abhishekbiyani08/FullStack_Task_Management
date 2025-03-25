@@ -28,13 +28,12 @@ namespace TaskManagementApi.Models
         [NotMapped]
         public TimeSpan? TimeToComplete => EndDate.HasValue ? EndDate.Value - StartDate : null;
 
-        // Navigation property
         public User? User { get; set; }
 
         [NotMapped]
-        public DateTime StartDateLocal => TimeZoneInfo.ConvertTimeFromUtc(StartDate,TimeZoneInfo.FindSystemTimeZoneById("India Standard Time"));
+        public DateTime StartDateLocal => TimeZoneInfo.ConvertTimeFromUtc(StartDate, TimeZoneInfo.FindSystemTimeZoneById("India Standard Time"));
 
         [NotMapped]
-        public DateTime? EndDateLocal => EndDate.HasValue ? TimeZoneInfo.ConvertTimeFromUtc(EndDate.Value,TimeZoneInfo.FindSystemTimeZoneById("India Standard Time")) : null;
+        public DateTime? EndDateLocal => EndDate.HasValue ? TimeZoneInfo.ConvertTimeFromUtc(EndDate.Value, TimeZoneInfo.FindSystemTimeZoneById("India Standard Time")) : null;
     }
 }
